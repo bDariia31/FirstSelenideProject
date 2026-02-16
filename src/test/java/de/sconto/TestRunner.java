@@ -10,4 +10,5 @@ import org.junit.runner.RunWith;
         glue = "de/sconto/stepDefinitions",
         plugin = {"pretty","json:build/cucumber-report/cucumber.json"})
 public class TestRunner {
+
 }
