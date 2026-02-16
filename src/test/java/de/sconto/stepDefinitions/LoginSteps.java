@@ -11,6 +11,7 @@ import io.cucumber.java.en.When;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
+import static de.sconto.pages.HomePage.baseURL;
 
 public class LoginSteps {
     HomePage home;
@@ -20,7 +21,7 @@ public class LoginSteps {
     @Given("User is on HomePage")
     public void is_on_HomePage()
     {
-        home=open("https://www.sconto.de",HomePage.class);
+        home=open(baseURL,HomePage.class);
         getWebDriver().manage().window().maximize();
         home.acceptCookies(); //принимаем cookies
 
@@ -38,7 +39,7 @@ public class LoginSteps {
     public void enter_correct_data()
     {
         login= Selenide.page(LoginPage.class);
-        login.enterData("maritest@gmail.com","Test1234$");
+        login.enterData();
     }
 
     @And("User clicks on Anmelden button")
@@ -58,7 +59,7 @@ public class LoginSteps {
     public void verify_user_name()
 {
     profile=Selenide.page(ProfilePage.class);
-    profile.verifyUserName("Mariia Testova");
+    profile.verifyUserName();
 }
 
 }
